@@ -1,5 +1,6 @@
-# Hop ![Hop Logo](./hop-logo.png)
-a jQuery plugin to highlight important section of your site, inspired by Google Inbox.
+![Hop Logo](./hop-logo.png)
+
+a jQuery plugin to highlight important sections of your site, inspired by Google Inbox.
 it will create a circle arround your selected element, and overlay the whole page.
 
 ## Get Started
