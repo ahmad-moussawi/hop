@@ -118,7 +118,7 @@ module HopPlugin {
             Hop.outerEl.remove();
             Hop.outerEl = null;
             return this;
-        }
+        }        
 
         move(left = 0, top = 0, relative = false): Hop {
 

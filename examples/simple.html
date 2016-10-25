@@ -53,6 +53,10 @@
 		padding: 5px 15px;
 		display: inline-block;
 	}
+
+    .hop-outer {
+        transition: .2s cubic-bezier(0.215, 0.61, 0.355, 1) all;
+    }
 </style>
 
 <body>
@@ -75,7 +79,7 @@
 				<button onclick="showHop()">let's focus</button>
 			</p>
 			<p>
-				<button onclick="showHopOnFooter()">and on footer</button>
+				<button onclick="showHopOnFooter()">then <b>Animate</b></button>
 			</p>
 			<p>
 				<button onclick="bindOnMouse()">and now follow the mouse</button>
@@ -112,16 +116,22 @@
             var $el = $('.footer a').hop();
 
             setTimeout(function() {
-                $el.data('hop').move(80, 0, true);
+                $el.data('hop').move(100, 0, true);
             }, 2000);
             
             setTimeout(function() {
-                $el.data('hop').move(80, 0, true);
+                // move to the top right of the page
+                $el.hop({color:'#E91E63', radius: 400, borderColor: '#fff', borderWidth: 10}).data('hop').move('90%', 100, false);
             }, 4000);
             
             setTimeout(function() {
-                $el.data('hop').remove();
+                // move to the 2nd button
+                $('button:eq(1)').hop({radius: 150, color: '#fb8c00', borderColor: '#000'})                                
             }, 6000);
+            
+            setTimeout(function() {
+                $('.logo').hop({radius: 250, color: '#ffc107'});
+            }, 8000);
         }
 
         function hideHop() {
@@ -130,7 +140,7 @@
 
         function bindOnMouse() {
 
-            
+
             $('.logo').hop({
                 color: '#ffc107',
                 radius: 200,

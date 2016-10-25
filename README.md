@@ -1,7 +1,11 @@
 ![Hop Logo](./hop-logo.png)
 
 a jQuery plugin to highlight important sections of your site, inspired by Google Inbox.
-it will create a circle arround your selected element, and overlay the whole page.
+it will create a circle arround a specific section, and overlay the whole page.
+
+<video width="780" height="320">
+    <source src="./hop-intro.mp4">
+</video>
 
 ## Get Started
 
@@ -52,6 +56,16 @@ hopApi.move(20, 10, true);
 hopApi.remove();
 ```
 
+>*Note:* if you want to change the radius, color or border properties, you can recall the plugin with the new options
+
+```js
+$('.logo').hop();
+
+// increase the radius
+$('.logo').hop({radius: 250});
+```
+
+
 ## `Hop` class methods interface
 
 ## `remove() : Hop`
@@ -66,3 +80,32 @@ left  | move the hop to the right, pass a negative value to move it to the left
 top   | move the hop to the bottom, pass a negative value to move it to the top
 relative | if true, it will move it from the current location, otherwise it will be relative to the current document
 
+>**Note:** if you want to move the hop to another element, call the plugin on the new element
+
+```js
+$('.logo').hop();
+
+// move the hop to the footer
+$('.footer').hop();
+```
+
+## To Apply animation
+just put this css rule in your document
+
+```css
+.hop-outer {
+    .2s linear all;
+}
+```
+
+off course you can customize it as per your need.
+
+## Roadmap
+ - Generate TypeScript `dts` files
+ - Provide a jQuery less version
+ - Improve current API
+ - Add more examples 
+
+## Contribution
+This plugin is written in TypeScript.
+I will update the contribution guide the soonest
