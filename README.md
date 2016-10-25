@@ -3,9 +3,7 @@
 a jQuery plugin to highlight important sections of your site, inspired by Google Inbox.
 it will create a circle arround a specific section, and overlay the whole page.
 
-<video width="780" height="320">
-    <source src="./hop-intro.mp4">
-</video>
+![Hop intro](./hop-intro.gif)
 
 ## Get Started
 
@@ -38,6 +36,8 @@ the width of the border arround the hop
 ### borderColor: string
 the border color, any valid html color
 
+## Examples
+Check the examples folder
 
 ## API
 After calling the `hop()` plugin on a jQuery element, you can get the `Hop` instance in `$(el).data('hop')`
@@ -71,14 +71,14 @@ $('.logo').hop({radius: 250});
 ## `remove() : Hop`
 Remove and hide the hop, return the current `Hop` instance
 
-## `move(left:number = 0, top:number = 0, relative?:bool = false): Hop`
+## `move(left, top, relative? = false): Hop`
 Move the current hop horizantally or vertically, return the current `Hop` instance
 
-param | description
-------| -----------
-left  | move the hop to the right, pass a negative value to move it to the left
-top   | move the hop to the bottom, pass a negative value to move it to the top
-relative | if true, it will move it from the current location, otherwise it will be relative to the current document
+param | description | example
+------| ----------- | ---------
+left  | `number|string` move the hop to the right, pass a negative value to move it to the left | `0`, `'50%'` only if relative is `false`
+top   | `number|string`move the hop to the bottom, pass a negative value to move it to the top | `'10%'` only if relative is `false`
+relative | `boolean` default to `false`, if true, it will move it from the current location, otherwise it will be relative to the current document
 
 >**Note:** if you want to move the hop to another element, call the plugin on the new element
 
