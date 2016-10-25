@@ -59,26 +59,26 @@ var HopPlugin;
         Hop.prototype.remove = function () {
             Hop.outerEl.remove();
             Hop.outerEl = null;
+            return this;
         };
-        Hop.prototype.move = function (left, top) {
-            this.moveLeft(left);
-            this.moveTop(top);
-        };
-        Hop.prototype.moveLeft = function (x) {
+        Hop.prototype.move = function (left, top, relative) {
+            if (left === void 0) { left = 0; }
+            if (top === void 0) { top = 0; }
+            if (relative === void 0) { relative = false; }
+            if (!relative) {
+                Hop.outerEl.css({
+                    left: left,
+                    top: top
+                });
+                return this;
+            }
+            var topSign = top > 0 ? '+' : '-';
+            var leftSign = left > 0 ? '+' : '-';
             Hop.outerEl.css({
-                left: x > 0 ? "+=" + x : "-=" + x
+                left: "" + leftSign + left,
+                top: "" + topSign + top,
             });
-        };
-        Hop.prototype.moveTop = function (x) {
-            Hop.outerEl.css({
-                top: x > 0 ? "+=" + x : "-=" + x
-            });
-        };
-        Hop.prototype.goTo = function (left, top) {
-            Hop.outerEl.css({
-                left: Math.ceil(left + this.targetHeight / 2),
-                top: Math.ceil(top + this.targetHeight / 2)
-            });
+            return this;
         };
         Hop.outerEl = null;
         Hop.innerEl = null;

@@ -114,33 +114,34 @@ module HopPlugin {
             return Math.ceil(Math.sqrt(Math.pow(width, 2) * Math.pow(height, 2)));
         }
 
-        remove() {
+        remove(): Hop {
             Hop.outerEl.remove();
             Hop.outerEl = null;
+            return this;
         }
 
-        move(left, top) {
-            this.moveLeft(left);
-            this.moveTop(top);
-        }
+        move(left = 0, top = 0, relative = false): Hop {
 
-        moveLeft(x: number) {
+            if (!relative) {
+
+                Hop.outerEl.css({
+                    left,
+                    top
+                });
+
+                return this;
+            }
+
+            var topSign = top > 0 ? '+' : '-';
+            var leftSign = left > 0 ? '+' : '-';
+
             Hop.outerEl.css({
-                left: x > 0 ? `+=${x}` : `-=${x}`
-            })
-        }
-
-        moveTop(x: number) {
-            Hop.outerEl.css({
-                top: x > 0 ? `+=${x}` : `-=${x}`
-            })
-        }
-
-        goTo(left, top) {
-            Hop.outerEl.css({
-                left: left,
-                top: top
+                left: `${leftSign}${left}`,
+                top: `${topSign}${top}`,
             });
+
+            return this;
+
         }
 
     }
