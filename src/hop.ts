@@ -122,25 +122,28 @@ module HopPlugin {
 
         move(left = 0, top = 0, relative = false): Hop {
 
-            if (!relative) {
+            if (relative === true) {
+
+
+                var topSign = top > 0 ? '+' : '-';
+                var leftSign = left > 0 ? '+' : '-';
 
                 Hop.outerEl.css({
-                    left,
-                    top
+                    left: `${leftSign}=${left}`,
+                    top: `${topSign}=${top}`,
                 });
 
                 return this;
+
             }
 
-            var topSign = top > 0 ? '+' : '-';
-            var leftSign = left > 0 ? '+' : '-';
-
             Hop.outerEl.css({
-                left: `${leftSign}${left}`,
-                top: `${topSign}${top}`,
+                left,
+                top
             });
 
             return this;
+
 
         }
 
@@ -167,7 +170,7 @@ module HopPlugin {
                 // make sure we are passing the first element
                 var hop = new Hop($);
                 hop.init(instance, options);
-                instance.hop = hop;
+                instance.data('hop', hop);
                 return instance;
             }
 

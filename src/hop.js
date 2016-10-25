@@ -65,18 +65,18 @@ var HopPlugin;
             if (left === void 0) { left = 0; }
             if (top === void 0) { top = 0; }
             if (relative === void 0) { relative = false; }
-            if (!relative) {
+            if (relative === true) {
+                var topSign = top > 0 ? '+' : '-';
+                var leftSign = left > 0 ? '+' : '-';
                 Hop.outerEl.css({
-                    left: left,
-                    top: top
+                    left: leftSign + "=" + left,
+                    top: topSign + "=" + top,
                 });
                 return this;
             }
-            var topSign = top > 0 ? '+' : '-';
-            var leftSign = left > 0 ? '+' : '-';
             Hop.outerEl.css({
-                left: "" + leftSign + left,
-                top: "" + topSign + top,
+                left: left,
+                top: top
             });
             return this;
         };
@@ -103,7 +103,7 @@ var HopPlugin;
                 // make sure we are passing the first element
                 var hop = new Hop($);
                 hop.init(instance, options);
-                instance.hop = hop;
+                instance.data('hop', hop);
                 return instance;
             };
         };

@@ -1,4 +1,4 @@
-# Hop
+# Hop ![Hop Logo](./hop-logo.png)
 a jQuery plugin to highlight important section of your site, inspired by Google Inbox.
 it will create a circle arround your selected element, and overlay the whole page.
 
@@ -35,19 +35,20 @@ the border color, any valid html color
 
 
 ## API
-After calling the `hop()` plugin on a jQuery element, it will add a property of type `Hop` to the element
+After calling the `hop()` plugin on a jQuery element, you can get the `Hop` instance in `$(el).data('hop')`
 
 
 ### Usage example
 
 ```js
 $('.logo').hop();
-var hopApi = $('.logo').hop;
-
-// or var hopApi =  $('.logo').hop().hop
+var hopApi = $('.logo').data('hop');
 
 // move the hope by (20px, 10px) from the current position
 hopApi.move(20, 10, true);
+
+// remove it
+hopApi.remove();
 ```
 
 ## `Hop` class methods interface
@@ -63,11 +64,4 @@ param | description
 left  | move the hop to the right, pass a negative value to move it to the left
 top   | move the hop to the bottom, pass a negative value to move it to the top
 relative | if true, it will move it from the current location, otherwise it will be relative to the current document
-  
-```js
-var $div = $('div.feature').hop();
-
-// move it to (150px, 300px) in the document
-$div.hop.move(150, 300);
-```
 
