@@ -69,7 +69,7 @@
 <body>
 	<section class="page-header">
 		<h1 class="project-name">Hop</h1>
-		<h2 class="project-tagline">a jQuery plugin to highlight important section of your site</h2>
+		<h2 class="project-tagline">A jQuery plugin to highlight important section of your site</h2>
 		<a onclick="demo()" class="btn">Show me a demo</a>
 		<a href="https://github.com/ahmad-moussawi/hop" class="btn">View on GitHub</a>
 		<a href="https://github.com/ahmad-moussawi/hop/zipball/master" class="btn">Download .zip</a>
@@ -97,9 +97,7 @@
 
 		<p>return the current jQuery instance</p>
 
-		<div class="highlight highlight-source-js">
-			<pre> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.target-element<span class="pl-pds">'</span></span>).
-				<span class="pl-en">hop</span>();</pre>
+		<div class="highlight highlight-source-js"><pre> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.target-element<span class="pl-pds">'</span></span>).<span class="pl-en">hop</span>();</pre>
 		</div>
 
 		<blockquote>
@@ -130,21 +128,21 @@
 			number
 		</h3>
 
-		<p>the overlay opacity, <code>0 &gt; opacity &lt; 1</code></p>
+		<p>The overlay opacity, <code>0 &gt; opacity &lt; 1</code></p>
 
 		<h3>
 			<a id="borderwidth-number" class="anchor" href="#borderwidth-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>borderWidth:
 			number
 		</h3>
 
-		<p>the width of the border arround the hop</p>
+		<p>The width of the border arround the hop</p>
 
 		<h3>
 			<a id="bordercolor-string" class="anchor" href="#bordercolor-string" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>borderColor:
 			string
 		</h3>
 
-		<p>the border color, any valid html color</p>
+		<p>The border color, any valid html color</p>
 
 		<h2>
 			<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
@@ -161,16 +159,11 @@
 			example
 		</h3>
 
-		<div class="highlight highlight-source-js">
-			<pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).
-				<span class="pl-en">hop</span>();
-				<span class="pl-k">var</span> hopApi <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo
-				<span class="pl-pds">'</span>
-				</span>).<span class="pl-c1">data</span>(<span class="pl-s"><span class="pl-pds">'</span>hop<span class="pl-pds">'</span></span>);
+		<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).<span class="pl-en">hop</span>();
+				<span class="pl-k">var</span> hopApi <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).<span class="pl-c1">data</span>(<span class="pl-s"><span class="pl-pds">'</span>hop<span class="pl-pds">'</span></span>);
 
 				<span class="pl-c">// move the hope by (20px, 10px) from the current position</span>
-				<span class="pl-smi">hopApi</span>.<span class="pl-c1">move</span>(<span class="pl-c1">20</span>, <span class="pl-c1">10</span>,
-				<span class="pl-c1">true</span>);
+				<span class="pl-smi">hopApi</span>.<span class="pl-c1">move</span>(<span class="pl-c1">20</span>, <span class="pl-c1">10</span>,<span class="pl-c1">true</span>);
 
 				<span class="pl-c">// remove it</span>
 				<span class="pl-smi">hopApi</span>.<span class="pl-c1">remove</span>();</pre>
@@ -180,13 +173,11 @@
 			<p><em>Note:</em> if you want to change the radius, color or border properties, you can recall the plugin with the new options</p>
 		</blockquote>
 
-		<div class="highlight highlight-source-js">
-			<pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).
+		<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).
 				<span class="pl-en">hop</span>();
 
 				<span class="pl-c">// increase the radius</span>
-				<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).
-				<span class="pl-en">hop</span>({radius<span class="pl-k">:</span> <span class="pl-c1">250</span>});</pre>
+				<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).<span class="pl-en">hop</span>({radius<span class="pl-k">:</span> <span class="pl-c1">250</span>});</pre>
 		</div>
 
 		<h2>
@@ -243,28 +234,25 @@
 			<p><strong>Note:</strong> if you want to move the hop to another element, call the plugin on the new element</p>
 		</blockquote>
 
-		<div class="highlight highlight-source-js">
-			<pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).
+		<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).
 				<span class="pl-en">hop</span>();
 
 				<span class="pl-c">// move the hop to the footer</span>
-				<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.footer<span class="pl-pds">'</span></span>).
-				<span class="pl-en">hop</span>();</pre>
+				<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.footer<span class="pl-pds">'</span></span>).<span class="pl-en">hop</span>();</pre>
 		</div>
 
 		<h2>
 			<a id="to-apply-animation" class="anchor" href="#to-apply-animation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To
 			Apply animation</h2>
 
-		<p>just put this css rule in your document</p>
+		<p>Just put this css rule in your document</p>
 
 		<div class="highlight highlight-source-css">
-			<pre><span class="pl-e">.hop-outer</span> { .2
-				<span class="pl-c1">s</span> <span class="pl-c1">linear</span> <span class="pl-c1">all</span>; }
+			<pre><span class="pl-e">.hop-outer</span> { .2<span class="pl-c1">s</span> <span class="pl-c1">linear</span> <span class="pl-c1">all</span>; }
 			</pre>
 		</div>
 
-		<p>off course you can customize it as per your need.</p>
+		<p>Off course you can customize it as per your need.</p>
 
 		<h2>
 			<a id="roadmap" class="anchor" href="#roadmap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Roadmap</h2>
