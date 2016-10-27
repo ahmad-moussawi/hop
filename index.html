@@ -1,221 +1,293 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Hop by ahmad-moussawi</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdn.rawgit.com/ahmad-moussawi/hop/master/src/hop.js"></script>
-    <style>
-      .hop-outer{
-        transition: .2s all ease-out;
-        -webkit-transition: .2s all ease-out;
-        -mz-transition: .2s all ease-out;
-        -ms-transition: .2s all ease-out;
-        -o-transition: .2s all ease-out;
-      }
-    </style>
-    <script>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Hop by ahmad-moussawi</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://rawgit.com/ahmad-moussawi/hop/master/src/hop.js"></script>
+	<style>
+		.hop-outer {
+			transition: .2s all ease-out;
+			-webkit-transition: .2s all ease-out;
+			-mz-transition: .2s all ease-out;
+			-ms-transition: .2s all ease-out;
+			-o-transition: .2s all ease-out;
+		}
+		
+		.hop-content {
+			color: #fff;
+			font-size: 22px;
+			width: 300px;
+			top: 100%;
+			left: 100%;
+			position: absolute;
+		}
+		
+		.hop-content h2 {
+			margin: 5px 0;
+		}
+	</style>
+	<script>
+
+      var q = [        
+          function() { 
+            $('.project-name').hop({radius: 150});
+
+            $('.hop-inner').append('<div class="hop-content"><h2>Hop!</h2><p>It\'s time to highlight your new feature on your web site or application</p></div>');
+
+          },        
+          function() { 
+            $('.btn:eq(0)').hop({color: '#FBC02D', radius: 250, borderWidth: 10}) 
+            $('.hop-content').css({top:0, left: '120%', width: 450}).html('<h2>Customizable</h2><p>You can customize it as you want, move it, change the overlay color, border size and color and more on the fly</p>');
+          },                          
+          function() { 
+            $('.btn:eq(3)').hop({color: '#E91E63', radius: 500, borderWidth: 25, borderColor: '#FFC107', opacity: .9}) 
+            $('.hop-content').css({top:0, right: '100%', left: 'auto', width: 450}).html('<h2>Easy to start</h2><p>No css required by default, just <code>$(\'.logo\').hop()</code> and you are ready</p><a style="cursor:pointer" class="btn" onclick="closeHop()">Got It</a>');
+          },                          
+      ];
+
       $(function(){
-        $('.project-name').hop();
 
-        setTimeout(function() {
-           $('.project-tagline').hop();
-        }, 2000);
+          for(var i = 0; i < q.length; i++) {
+            setTimeout(q[i], i * 4000);
+          }          
+        
       });
+
+      function closeHop() {
+        $('div').hop().data('hop').remove();
+      }
     </script>
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Hop</h1>
-      <h2 class="project-tagline">a jQuery plugin to highlight important section of your site</h2>
-      <a onclick="demo()" class="btn">Show me a demo</a>
-      <a href="https://github.com/ahmad-moussawi/hop" class="btn">View on GitHub</a>
-      <a href="https://github.com/ahmad-moussawi/hop/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/ahmad-moussawi/hop/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+</head>
 
-    <section class="main-content">
-      <p><img src="./hop-logo.png" alt="Hop Logo"></p>
+<body>
+	<section class="page-header">
+		<h1 class="project-name">Hop</h1>
+		<h2 class="project-tagline">a jQuery plugin to highlight important section of your site</h2>
+		<a onclick="demo()" class="btn">Show me a demo</a>
+		<a href="https://github.com/ahmad-moussawi/hop" class="btn">View on GitHub</a>
+		<a href="https://github.com/ahmad-moussawi/hop/zipball/master" class="btn">Download .zip</a>
+		<a href="https://github.com/ahmad-moussawi/hop/tarball/master" class="btn">Download .tar.gz</a>
+	</section>
 
-<p>a jQuery plugin to highlight important sections of your site, inspired by Google Inbox.
-it will create a circle arround a specific section, and overlay the whole page.</p>
+	<section class="main-content">
+		<p><img src="./hop-logo.png" alt="Hop Logo"></p>
 
-<p><img src="./hop-intro.gif" alt="Hop intro"></p>
+		<p>a jQuery plugin to highlight important sections of your site, inspired by Google Inbox. it will create a circle arround
+			a specific section, and overlay the whole page.</p>
 
-<h2>
-<a id="get-started" class="anchor" href="#get-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get Started</h2>
+		<p><img src="./hop-intro.gif" alt="Hop intro"></p>
 
-<p>Simply call the <code>hop()</code> method on your jQuery instance.</p>
+		<h2>
+			<a id="get-started" class="anchor" href="#get-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get
+			Started
+		</h2>
 
-<h3>
-<a id="hopoptions-options-jqueryinstance" class="anchor" href="#hopoptions-options-jqueryinstance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>$.hop(options: Options): jQueryInstance</code>
-</h3>
+		<p>Simply call the <code>hop()</code> method on your jQuery instance.</p>
 
-<p>return the current jQuery instance</p>
+		<h3>
+			<a id="hopoptions-options-jqueryinstance" class="anchor" href="#hopoptions-options-jqueryinstance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>$.hop(options: Options): jQueryInstance</code>
+		</h3>
 
-<div class="highlight highlight-source-js"><pre>    <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.target-element<span class="pl-pds">'</span></span>).<span class="pl-en">hop</span>();</pre></div>
+		<p>return the current jQuery instance</p>
 
-<blockquote>
-<p><em>Note:</em> if multiple elements selected, Hop will choose the first one.</p>
-</blockquote>
+		<div class="highlight highlight-source-js">
+			<pre> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.target-element<span class="pl-pds">'</span></span>).
+				<span class="pl-en">hop</span>();</pre>
+		</div>
 
-<h2>
-<a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h2>
+		<blockquote>
+			<p><em>Note:</em> if multiple elements selected, Hop will choose the first one.</p>
+		</blockquote>
 
-<p>The following options are available if you want to adjust it,</p>
+		<h2>
+			<a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h2>
 
-<h3>
-<a id="color-string" class="anchor" href="#color-string" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>color: string</h3>
+		<p>The following options are available if you want to adjust it,</p>
 
-<p>The overlay color, any valid html color</p>
+		<h3>
+			<a id="color-string" class="anchor" href="#color-string" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>color:
+			string
+		</h3>
 
-<h3>
-<a id="radius-number" class="anchor" href="#radius-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>radius: number</h3>
+		<p>The overlay color, any valid html color</p>
 
-<p>The radius of the circle, must be a positive number</p>
+		<h3>
+			<a id="radius-number" class="anchor" href="#radius-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>radius:
+			number
+		</h3>
 
-<h3>
-<a id="opacity-number" class="anchor" href="#opacity-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>opacity: number</h3>
+		<p>The radius of the circle, must be a positive number</p>
 
-<p>the overlay opacity, <code>0 &gt; opacity &lt; 1</code></p>
+		<h3>
+			<a id="opacity-number" class="anchor" href="#opacity-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>opacity:
+			number
+		</h3>
 
-<h3>
-<a id="borderwidth-number" class="anchor" href="#borderwidth-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>borderWidth: number</h3>
+		<p>the overlay opacity, <code>0 &gt; opacity &lt; 1</code></p>
 
-<p>the width of the border arround the hop</p>
+		<h3>
+			<a id="borderwidth-number" class="anchor" href="#borderwidth-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>borderWidth:
+			number
+		</h3>
 
-<h3>
-<a id="bordercolor-string" class="anchor" href="#bordercolor-string" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>borderColor: string</h3>
+		<p>the width of the border arround the hop</p>
 
-<p>the border color, any valid html color</p>
+		<h3>
+			<a id="bordercolor-string" class="anchor" href="#bordercolor-string" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>borderColor:
+			string
+		</h3>
 
-<h2>
-<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+		<p>the border color, any valid html color</p>
 
-<p>Check the examples folder</p>
+		<h2>
+			<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
 
-<h2>
-<a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h2>
+		<p>Check the examples folder</p>
 
-<p>After calling the <code>hop()</code> plugin on a jQuery element, you can get the <code>Hop</code> instance in <code>$(el).data('hop')</code></p>
+		<h2>
+			<a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h2>
 
-<h3>
-<a id="usage-example" class="anchor" href="#usage-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage example</h3>
+		<p>After calling the <code>hop()</code> plugin on a jQuery element, you can get the <code>Hop</code> instance in <code>$(el).data('hop')</code></p>
 
-<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).<span class="pl-en">hop</span>();
-<span class="pl-k">var</span> hopApi <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).<span class="pl-c1">data</span>(<span class="pl-s"><span class="pl-pds">'</span>hop<span class="pl-pds">'</span></span>);
+		<h3>
+			<a id="usage-example" class="anchor" href="#usage-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage
+			example
+		</h3>
 
-<span class="pl-c">// move the hope by (20px, 10px) from the current position</span>
-<span class="pl-smi">hopApi</span>.<span class="pl-c1">move</span>(<span class="pl-c1">20</span>, <span class="pl-c1">10</span>, <span class="pl-c1">true</span>);
+		<div class="highlight highlight-source-js">
+			<pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).
+				<span class="pl-en">hop</span>();
+				<span class="pl-k">var</span> hopApi <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo
+				<span class="pl-pds">'</span>
+				</span>).<span class="pl-c1">data</span>(<span class="pl-s"><span class="pl-pds">'</span>hop<span class="pl-pds">'</span></span>);
 
-<span class="pl-c">// remove it</span>
-<span class="pl-smi">hopApi</span>.<span class="pl-c1">remove</span>();</pre></div>
+				<span class="pl-c">// move the hope by (20px, 10px) from the current position</span>
+				<span class="pl-smi">hopApi</span>.<span class="pl-c1">move</span>(<span class="pl-c1">20</span>, <span class="pl-c1">10</span>,
+				<span class="pl-c1">true</span>);
 
-<blockquote>
-<p><em>Note:</em> if you want to change the radius, color or border properties, you can recall the plugin with the new options</p>
-</blockquote>
+				<span class="pl-c">// remove it</span>
+				<span class="pl-smi">hopApi</span>.<span class="pl-c1">remove</span>();</pre>
+		</div>
 
-<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).<span class="pl-en">hop</span>();
+		<blockquote>
+			<p><em>Note:</em> if you want to change the radius, color or border properties, you can recall the plugin with the new options</p>
+		</blockquote>
 
-<span class="pl-c">// increase the radius</span>
-<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).<span class="pl-en">hop</span>({radius<span class="pl-k">:</span> <span class="pl-c1">250</span>});</pre></div>
+		<div class="highlight highlight-source-js">
+			<pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).
+				<span class="pl-en">hop</span>();
 
-<h2>
-<a id="hop-class-methods-interface" class="anchor" href="#hop-class-methods-interface" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>Hop</code> class methods interface</h2>
+				<span class="pl-c">// increase the radius</span>
+				<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).
+				<span class="pl-en">hop</span>({radius<span class="pl-k">:</span> <span class="pl-c1">250</span>});</pre>
+		</div>
 
-<h2>
-<a id="remove--hop" class="anchor" href="#remove--hop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>remove() : Hop</code>
-</h2>
+		<h2>
+			<a id="hop-class-methods-interface" class="anchor" href="#hop-class-methods-interface" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>Hop</code>			class methods interface</h2>
 
-<p>Remove and hide the hop, return the current <code>Hop</code> instance</p>
+		<h2>
+			<a id="remove--hop" class="anchor" href="#remove--hop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>remove() : Hop</code>
+		</h2>
 
-<h2>
-<a id="moveleft-top-relative--false-hop" class="anchor" href="#moveleft-top-relative--false-hop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>move(left, top, relative? = false): Hop</code>
-</h2>
+		<p>Remove and hide the hop, return the current <code>Hop</code> instance</p>
 
-<p>Move the current hop horizantally or vertically, return the current <code>Hop</code> instance</p>
+		<h2>
+			<a id="moveleft-top-relative--false-hop" class="anchor" href="#moveleft-top-relative--false-hop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>move(left, top, relative? = false): Hop</code>
+		</h2>
 
-<table>
-<thead>
-<tr>
-<th>param</th>
-<th>description</th>
-<th>example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>left</td>
-<td>
-<code>number|string</code> move the hop to the right, pass a negative value to move it to the left</td>
-<td>
-<code>0</code>, <code>'50%'</code> only if relative is <code>false</code>
-</td>
-</tr>
-<tr>
-<td>top</td>
-<td>
-<code>number|string</code>move the hop to the bottom, pass a negative value to move it to the top</td>
-<td>
-<code>'10%'</code> only if relative is <code>false</code>
-</td>
-</tr>
-<tr>
-<td>relative</td>
-<td>
-<code>boolean</code> default to <code>false</code>, if true, it will move it from the current location, otherwise it will be relative to the current document</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+		<p>Move the current hop horizantally or vertically, return the current <code>Hop</code> instance</p>
 
-<blockquote>
-<p><strong>Note:</strong> if you want to move the hop to another element, call the plugin on the new element</p>
-</blockquote>
+		<table>
+			<thead>
+				<tr>
+					<th>param</th>
+					<th>description</th>
+					<th>example</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>left</td>
+					<td>
+						<code>number|string</code> move the hop to the right, pass a negative value to move it to the left</td>
+					<td>
+						<code>0</code>, <code>'50%'</code> only if relative is <code>false</code>
+					</td>
+				</tr>
+				<tr>
+					<td>top</td>
+					<td>
+						<code>number|string</code>move the hop to the bottom, pass a negative value to move it to the top</td>
+					<td>
+						<code>'10%'</code> only if relative is <code>false</code>
+					</td>
+				</tr>
+				<tr>
+					<td>relative</td>
+					<td>
+						<code>boolean</code> default to <code>false</code>, if true, it will move it from the current location, otherwise it
+						will be relative to the current document</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
 
-<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).<span class="pl-en">hop</span>();
+		<blockquote>
+			<p><strong>Note:</strong> if you want to move the hop to another element, call the plugin on the new element</p>
+		</blockquote>
 
-<span class="pl-c">// move the hop to the footer</span>
-<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.footer<span class="pl-pds">'</span></span>).<span class="pl-en">hop</span>();</pre></div>
+		<div class="highlight highlight-source-js">
+			<pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.logo<span class="pl-pds">'</span></span>).
+				<span class="pl-en">hop</span>();
 
-<h2>
-<a id="to-apply-animation" class="anchor" href="#to-apply-animation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To Apply animation</h2>
+				<span class="pl-c">// move the hop to the footer</span>
+				<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.footer<span class="pl-pds">'</span></span>).
+				<span class="pl-en">hop</span>();</pre>
+		</div>
 
-<p>just put this css rule in your document</p>
+		<h2>
+			<a id="to-apply-animation" class="anchor" href="#to-apply-animation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To
+			Apply animation</h2>
 
-<div class="highlight highlight-source-css"><pre><span class="pl-e">.hop-outer</span> {
-    .2<span class="pl-c1">s</span> <span class="pl-c1">linear</span> <span class="pl-c1">all</span>;
-}</pre></div>
+		<p>just put this css rule in your document</p>
 
-<p>off course you can customize it as per your need.</p>
+		<div class="highlight highlight-source-css">
+			<pre><span class="pl-e">.hop-outer</span> { .2
+				<span class="pl-c1">s</span> <span class="pl-c1">linear</span> <span class="pl-c1">all</span>; }
+			</pre>
+		</div>
 
-<h2>
-<a id="roadmap" class="anchor" href="#roadmap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Roadmap</h2>
+		<p>off course you can customize it as per your need.</p>
 
-<ul>
-<li>Generate TypeScript <code>dts</code> files</li>
-<li>Provide a jQuery less version</li>
-<li>Improve current API</li>
-<li>Add more examples </li>
-</ul>
+		<h2>
+			<a id="roadmap" class="anchor" href="#roadmap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Roadmap</h2>
 
-<h2>
-<a id="contribution" class="anchor" href="#contribution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contribution</h2>
+		<ul>
+			<li>Generate TypeScript <code>dts</code> files</li>
+			<li>Provide a jQuery less version</li>
+			<li>Improve current API</li>
+			<li>Add more examples </li>
+		</ul>
 
-<p>This plugin is written in TypeScript.
-I will update the contribution guide the soonest</p>
+		<h2>
+			<a id="contribution" class="anchor" href="#contribution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contribution</h2>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/ahmad-moussawi/hop">Hop</a> is maintained by <a href="https://github.com/ahmad-moussawi">ahmad-moussawi</a>.</span>
+		<p>This plugin is written in TypeScript. I will update the contribution guide the soonest</p>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
+		<footer class="site-footer">
+			<span class="site-footer-owner"><a href="https://github.com/ahmad-moussawi/hop">Hop</a> is maintained by <a href="https://github.com/ahmad-moussawi">ahmad-moussawi</a>.</span>
 
-    </section>    
-  </body>
+			<span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+		</footer>
+
+	</section>
+</body>
+
 </html>
