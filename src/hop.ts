@@ -94,7 +94,8 @@ module HopPlugin {
                 borderRadius: '50%',
                 borderWidth: options.borderWidth,
                 borderStyle: 'solid',
-                borderColor: options.borderColor
+                borderColor: options.borderColor,
+                boxSizing: 'content-box',
             });
 
             Hop.innerEl.css({
@@ -106,6 +107,7 @@ module HopPlugin {
                 marginLeft: -maxRadius - options.borderWidth,
                 borderRadius: '50%',
                 opacity: options.opacity,
+                boxSizing: 'content-box',
             });
 
         }
