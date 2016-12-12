@@ -125,14 +125,10 @@ module HopPlugin {
         move(left = 0, top = 0, relative = false): Hop {
 
             if (relative === true) {
-
-
-                var topSign = top > 0 ? '+' : '-';
-                var leftSign = left > 0 ? '+' : '-';
-
+              
                 Hop.outerEl.css({
-                    left: `${leftSign}=${left}`,
-                    top: `${topSign}=${top}`,
+                    left: `+=${left}`,
+                    top: `+=${top}`,
                 });
 
                 return this;

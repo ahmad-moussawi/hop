@@ -68,11 +68,9 @@ var HopPlugin;
             if (top === void 0) { top = 0; }
             if (relative === void 0) { relative = false; }
             if (relative === true) {
-                var topSign = top > 0 ? '+' : '-';
-                var leftSign = left > 0 ? '+' : '-';
                 Hop.outerEl.css({
-                    left: leftSign + "=" + left,
-                    top: topSign + "=" + top,
+                    left: "+=" + left,
+                    top: "+=" + top,
                 });
                 return this;
             }
